@@ -12,6 +12,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <sqlite.version>3.21.0.1</sqlite.version>
         <blade-mvc.version>2.0.14.RELEASE</blade-mvc.version>
+<!--        <blade-jdbc.version>0.2.2-RELEASE</blade-jdbc.version>-->
         <anima.version>0.2.5</anima.version>
         <blade-tpl.verion>0.1.3</blade-tpl.verion>
         <commonmark.version>0.11.0</commonmark.version>
@@ -33,6 +34,12 @@
             <artifactId>sqlite-jdbc</artifactId>
             <version>${sqlite.version}</version>
         </dependency>
+
+        <!--<dependency>
+            <groupId>com.bladejava</groupId>
+            <artifactId>blade-jdbc</artifactId>
+            <version>${blade-jdbc.version}</version>
+        </dependency>-->
 
         <dependency>
             <groupId>io.github.biezhi</groupId>

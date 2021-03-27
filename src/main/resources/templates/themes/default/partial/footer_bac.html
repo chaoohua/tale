@@ -6,18 +6,37 @@
     </div>
     <div class="footer-meta">
         <div class="footer-container">
-                <div class="">
+            <div class="meta-item meta-copyright">
+                <div class="meta-copyright-info">
                     <a href="${site_url()}" class="info-logo">
-                        <img src="/templates/themes/default/static/img/logo11.jpg" width="50px" alt="${site_title()}">
+                        <img src="/templates/themes/default/static/img/logo.png" alt="${site_title()}">
                     </a>
                     <div class="info-text">
-<!--                        <p><a href="http://beian.miit.gov.cn/publish/query/indexFirst.action">蜀ICP备20010319号-2</a></p>-->
-                        <p>记：请你所有，爱你所爱</p>
-                        <p class="en">Designed by <a href="https://gitee.com/biezhi/tale/" target="_blank">Tale</a> and developed by <a href="https://www.hcstar.xyz:9000" target="_blank">hcStar.</a></p>
-                        <p class="en">Copyright © 2020-2030 <a href="https://www.hcstar.xyz:9000" target="_blank">hcstar</a>. | All Rights Reserved.</p>
+                        <p>一生有所追求.</p>
+                        <p>Powered by <a href="https://github.com/otale/tale" target="_blank" rel="nofollow">Tale</a>
+                        </p>
+                        <p>&copy; 2017 <a href="https://github.com/biezhi">biezhi</a></p>
                     </div>
+                </div>
             </div>
 
+            <div class="meta-item meta-posts">
+                <h3 class="meta-title">最新文章</h3>
+                #for(article : recent_articles(8))
+                <li>
+                    <a href="${permalink()}">${title()}</a>
+                </li>
+                #end
+            </div>
+
+            <div class="meta-item meta-comments">
+                <h3 class="meta-title">最新评论</h3>
+                #for(comm : recent_comments(8))
+                <li>
+                    <a href="${site_url('/article/')}${comm.cid}#comment-${comm.coid}">${comm.author}：${comm.content}</a>
+                </li>
+                #end
+            </div>
         </div>
     </div>
 </footer>

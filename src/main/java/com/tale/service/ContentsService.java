@@ -15,6 +15,9 @@ import io.github.biezhi.anima.Anima;
 import io.github.biezhi.anima.core.AnimaQuery;
 import io.github.biezhi.anima.page.Page;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import static com.tale.bootstrap.TaleConst.SQL_QUERY_ARTICLES;
 import static io.github.biezhi.anima.Anima.deleteById;
 import static io.github.biezhi.anima.Anima.select;
@@ -60,14 +63,16 @@ public class ContentsService {
         if (null == contents.getAuthorId()) {
             throw new ValidatorException("请登录后发布文章");
         }
-
-        contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
+        try {
+            contents.setContent(EmojiParser.parseToAliases(URLDecoder.decode(contents.getContent(), "utf-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
 
         int time = DateKit.nowUnix();
         contents.setCreated(time);
         contents.setModified(time);
         contents.setHits(0);
-
         String tags       = contents.getTags();
         String categories = contents.getCategories();
 
@@ -87,7 +92,11 @@ public class ContentsService {
     public void updateArticle(Contents contents) {
         contents.setCreated(contents.getCreated());
         contents.setModified(DateKit.nowUnix());
-        contents.setContent(EmojiParser.parseToAliases(contents.getContent()));
+        try {
+            contents.setContent(EmojiParser.parseToAliases(URLDecoder.decode(contents.getContent(), "utf-8")));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
         contents.setTags(contents.getTags() != null ? contents.getTags() : "");
         contents.setCategories(contents.getCategories() != null ? contents.getCategories() : "");
 

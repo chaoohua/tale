@@ -189,7 +189,7 @@ var vm = new Vue({
             var $vm = this;
             var content = $vm.article.fmtType === 'markdown' ? mditor.value : htmlEditor.summernote('code');
             if ($vm.article.title !== '' && content !== '') {
-                $vm.article.content = content;
+                $vm.article.content = encodeURIComponent(content);
                 $vm.article.categories = $vm.article.selected.join(',');
                 var params = tale.copy($vm.article);
                 params.selected = null;

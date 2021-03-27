@@ -13,6 +13,7 @@
     <link rel="shortcut icon" href="${theme_url('/static/img/favicon.png')}"/>
     <link rel="apple-touch-icon" href="${theme_url('/static/img/apple-touch-icon.png')}"/>
     <title>${head_title()}</title>
+    <link href="${theme_url('/static/css/my.css')}" rel="stylesheet">
     <link href="${theme_url('/static/css/default.min.css')}" rel="stylesheet">
     <link href="${theme_url('/static/css/style.min.css')}" rel="stylesheet">
     #if(allow_cloud_CDN() == "true")
@@ -38,7 +39,7 @@
     <div class="navbar-container">
         <a href="${site_url()}" class="navbar-logo">
             #if(theme_option('logo_url') == "")
-            <img src="${theme_url('/static/img/logo.png')}" alt="${site_title()}"/>
+            <img src="${theme_url('/static/img/logo0.png')}" alt="${site_title()}"/>
             #else
             <img src="${theme_option('logo_url')}" alt="${site_title()}"/>
             #end
@@ -62,6 +63,7 @@
             <ul>
                 <li><a href="${site_url('/archives')}">归档</a></li>
                 <li><a href="${site_url('/links')}">友链</a></li>
+<!--                <li><a href="${site_url('/admin/login')}">控制后台</a></li>-->
                 <li><a href="${site_url('/about')}">关于</a></li>
             </ul>
         </div>
